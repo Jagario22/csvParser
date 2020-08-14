@@ -25,8 +25,8 @@ public class PropertyHolderFactory {
         List<Employee> employeesResult = new com.nix.reflection.csvParser.factory.PropertyHolderFactory<>(Employee.class).createByCsvTable(csvTable.get());
 
         List<Employee> employeesExpected = new ArrayList<>();
-        employeesExpected.add(new Employee("Mike", 27, "male", "janitor", true));
-        employeesExpected.add(new Employee("Beth", 23, "female", "recruiter", true));
+        employeesExpected.add(new Employee("Mike", 27, Employee.Gender.male, "janitor", true));
+        employeesExpected.add(new Employee("Beth", 23, Employee.Gender.female, "recruiter", true));
 
         for (int i = 0; i < employeesResult.size(); i++) {
             assertEquals(employeesResult.get(i).getAge(), employeesExpected.get(i).getAge());

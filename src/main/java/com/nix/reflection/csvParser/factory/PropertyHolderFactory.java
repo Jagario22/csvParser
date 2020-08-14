@@ -57,6 +57,8 @@ public class PropertyHolderFactory<T> {
                 }
                 else if (fieldType == int.class || fieldType == Integer.class) {
                     field.set(instance, Integer.parseInt(value));
+                } else if (fieldType.isEnum()) {
+                    field.set(instance, Enum.valueOf((Class<Enum>) fieldType, value));
                 }
                 else {
                     throw new UnsupportedOperationException("Type " + fieldType + " is not supported");

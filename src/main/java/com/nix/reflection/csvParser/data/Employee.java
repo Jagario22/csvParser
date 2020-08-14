@@ -4,6 +4,11 @@ import com.nix.reflection.csvParser.annotation.PropertyKey;
 
 public class Employee {
 
+    public enum Gender {
+        male,
+        female
+    }
+
     @PropertyKey("name")
     public String name;
 
@@ -11,7 +16,7 @@ public class Employee {
     private int age;
 
     @PropertyKey("gender")
-    public String gender;
+    public Gender gender;
 
     @PropertyKey("occupation")
     private String occupation;
@@ -21,7 +26,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, int age, String gender, String occupation, boolean testField) {
+    public Employee(String name, int age, Gender gender, String occupation, boolean testField) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -48,15 +53,15 @@ public class Employee {
         return age;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
     public String getOccupation() {
         return occupation;
     }
 
     public boolean isTestField() {
         return testField;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 }
